@@ -1,0 +1,33 @@
+Index: calamares-settings-mobian/CMakeLists.txt
+===================================================================
+--- calamares-settings-mobian.orig/CMakeLists.txt	2020-12-17 08:46:13.249000000 +0000
++++ calamares-settings-mobian/CMakeLists.txt	2020-12-17 08:46:13.247000000 +0000
+@@ -39,9 +39,7 @@
+ # Typically you would use only one branding, since that's
+ # the (single) branding for your distro.
+ #
+-calamares_add_branding_subdirectory( branding/default NAME default )
+ calamares_add_branding_subdirectory( branding/default-mobile NAME default-mobile )
+-calamares_add_branding_subdirectory( branding/fancy NAME fancy )
+ 
+ # This one has files in subdirectories
+ calamares_add_branding_subdirectory( branding/samegame NAME samegame SUBDIRECTORIES img )
+@@ -50,7 +48,6 @@
+ # different from the source directory it lives in; this will be installed
+ # to a directory called *NAME* though -- and the `branding.desc` must
+ # have a *componentName* that matches this *NAME*.
+-calamares_add_branding_subdirectory( branding/kaos_branding NAME kaos )
+ 
+ ### MODULES
+ #
+@@ -58,10 +55,7 @@
+ #
+ set(SKIPPED_MODULES "")
+ 
+-calamares_add_module_subdirectory( modules/filekeeper )  # C++ job
+-calamares_add_module_subdirectory( modules/freebsddisk )  # C++ viewmodule
+ calamares_add_module_subdirectory( modules/mobile )
+-calamares_add_module_subdirectory( modules/slowpython )  # Python job
+ 
+ # If modules cannot be built, they usually call a macro
+ # which builds a list of explanations; show that list.

@@ -1,7 +1,11 @@
 debian/settings.conf etc/calamares
 branding/default-mobile usr/share/calamares/branding
-debian/mobian.png usr/share/calamares/branding/default-mobile/logo.png
+debian/logo.png usr/share/calamares/branding/default-mobile/
+debian/config/unpackfs.conf etc/calamares/modules
+debian/config/shellprocess.conf etc/calamares/modules
+debian/configmobile.conf etc/calamares/modules
 debian/calamaresfb.service lib/systemd/system/
 debian/calamares-mobian-ondev usr/bin/
 debian/calamares-install-bootloader usr/bin
 styles/Plasma usr/lib/${DEB_HOST_MULTIARCH}/qt5/qml/QtQuick/VirtualKeyboard/Styles
+modules/mobile/*.qml usr/share/calamares/branding/default-mobile
