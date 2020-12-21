@@ -1,0 +1,23 @@
+Changes "default-mobile" to mobian in branding
+--- a/branding/default-mobile/branding.desc
++++ b/branding/default-mobile/branding.desc
+@@ -5,7 +5,7 @@
+ # Additional styling can be done using the stylesheet.qss
+ # file, also in the branding directory.
+ ---
+-componentName:  default-mobile
++componentName:  mobian
+ 
+ # This selects between different welcome texts. When false, uses
+ # the traditional "Welcome to the %1 installer.", and when true,
+@@ -92,8 +92,8 @@
+ # are visible as buttons there if the corresponding *show* keys
+ # are set to "true" (they can also be overridden).
+ strings:
+-    productName:         "NextGenMobileLinuxDistro"
+-    shortProductName:    NextGenMobileLinuxDistro
++    productName:         "Mobian"
++    shortProductName:    Mobian
+ 
+ # These images are loaded from the branding module directory.
+ #

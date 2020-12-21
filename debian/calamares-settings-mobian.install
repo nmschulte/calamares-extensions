@@ -4,6 +4,7 @@ config/modules/welcomeq-pmos.conf etc/calamares/modules/pmos.conf
 config/modules/shellprocess.conf etc/calamares/modules
 config/modules/unpackfs.conf etc/calamares/modules
 branding/mobian usr/share/calamares/branding
+debian/mobian.png usr/share/calamares/branding/default-mobile/logo.png
 modules/pmos/*.qml usr/share/calamares/branding/mobian
 debian/calamaresfb.service lib/systemd/system/
 debian/calamares-mobian-ondev usr/bin/

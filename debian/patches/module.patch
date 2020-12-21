@@ -1,0 +1,90 @@
+Modifications required to install Mobian using calamares-mobile
+--- a/modules/mobile/mobile.conf
++++ b/modules/mobile/mobile.conf
+@@ -6,26 +6,26 @@
+ #######
+ 
+ ## Operating System Name
+-# osName: "(unknown)"
++osName: "Mobian"
+ 
+ ## User Interface name (e.g. Plasma Mobile)
+-# userInterface: "(unknown)"
++userInterface: "Phosh"
+ 
+ ## OS version
+-# version: "(unknown)"
++version: "Bullseye"
+ 
+ ## Default username (for which the password will be set)
+-# username: "user"
++username: "mobian"
+ 
+ #######
+ ### Target device information
+ #######
+ 
+ ## Architecture (e.g. aarch64)
+-# arch: "(unknown)"
++arch: "arm64"
+ 
+ ## Name of the device (e.g. PinePhone)
+-# device: "(unknown)"
++device: "PinePhone"
+ 
+ ## Partition that will be formatted and mounted (optionally with FDE) for the rootfs
+ # targetDeviceRoot: "/dev/unknown"
+@@ -37,7 +37,7 @@
+ ## Ask whether sshd should be enabled or not. If enabled, add a dedicated ssh
+ ## user with proper username and password and suggest to change to key-based
+ ## authentication after installation.
+-# featureSshd: true
++featureSshd: false
+ 
+ #######
+ ### Commands running in the installer OS
+@@ -55,7 +55,7 @@
+ 
+ ## Format the rootfs with a file system
+ ## Arguments: <device>
+-# cmdMkfsRoot: "mkfs.ext4 -L 'unknownOS_root'"
++cmdMkfsRoot: "mkfs.ext4 -L 'root'"
+ 
+ ## Mount the partition after formatting with file system
+ ## Arguments: <device> <mountpoint>
+--- a/modules/mobile/PartitionJob.cpp
++++ b/modules/mobile/PartitionJob.cpp
+@@ -77,9 +77,11 @@
+     QString cryptDev = "/dev/mapper/" + cryptName;
+     QString passwordStdin = m_password + "\n";
+     QString dev = m_targetDeviceRoot;
++    QString devNoPart = dev.chopped(2);
+ 
+     QList< QPair< QStringList, QString > > commands = {
+         { { "mkdir", "-p", pathMount }, QString() },
++	{ { "parted", devNoPart, "mkpart", "primary", "ext4", "268M", "4.9G", "-s"}, QString()},
+     };
+ 
+     if ( m_isFdeEnabled )
+--- a/modules/mobile/ssh_confirm.qml
++++ b/modules/mobile/ssh_confirm.qml
+@@ -29,7 +29,7 @@
+               "<br>" +
+               "With 'enable', you will be asked for a second username and" +
+               " password. You will be able to login to the SSH server with" +
+-              " these credentials via USB (172.16.42.1), Wi-Fi and possibly" +
++              " Wi-Fi and possibly" +
+               " cellular network. It is recommended to replace the password" +
+               " with an SSH key after the installation.<br>" +
+               "<br>" +
+--- a/modules/mobile/wait.qml
++++ b/modules/mobile/wait.qml
+@@ -38,7 +38,7 @@
+             anchors.topMargin: 150
+             wrapMode: Text.WordWrap
+             text: "Formatting and mounting target partition. This may" +
+-                  " take up to 20 seconds, please be patient."
++                  " take up to two minutes, please be patient."
+             width: 500
+         }
+     }
