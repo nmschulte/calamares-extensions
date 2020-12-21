@@ -1,0 +1,11 @@
+config/settings.conf etc/calamares
+config/modules/welcomeq-pmos.conf etc/calamares/modules
+config/modules/welcomeq-pmos.conf etc/calamares/modules/pmos.conf
+config/modules/shellprocess.conf etc/calamares/modules
+config/modules/unpackfs.conf etc/calamares/modules
+branding/mobian usr/share/calamares/branding
+modules/pmos/*.qml usr/share/calamares/branding/mobian
+debian/calamaresfb.service lib/systemd/system/
+debian/calamares-mobian-ondev usr/bin/
+debian/calamares-install-bootloader usr/bin
+styles/Plasma usr/lib/${DEB_HOST_MULTIARCH}/qt5/qml/QtQuick/VirtualKeyboard/Styles

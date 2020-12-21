@@ -1,0 +1,19 @@
+calamares-settings-mobian (0.0.3) unstable; urgency=medium
+
+  * calamaresfb: use 'Fusion' theme for a better look
+  * d/control: depend on cryptsetup
+
+ -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Tue, 15 Dec 2020 12:16:39 +0100
+
+calamares-settings-mobian (0.0.2) unstable; urgency=medium
+
+  * Revert "Use Plasma UI in Calamares"
+
+ -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Wed, 02 Dec 2020 14:30:17 +0100
+
+calamares-settings-mobian (0.0.1) unstable; urgency=medium
+
+  [ undef ]
+  * Initial release
+
+ -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Tue, 01 Dec 2020 11:13:48 +0100

@@ -1,0 +1,78 @@
+Source: calamares-settings-mobian
+Section: utils
+Priority: optional
+Maintainer: undef <debian@undef.tools>
+Build-Depends: calamares,
+               cmake,
+               debhelper-compat (= 13),
+               libcryptsetup-dev,
+               libkf5coreaddons-dev,
+               libkf5declarative-dev,
+               libkf5kdelibs4support-dev,
+               libsdl2-dev,
+               libsdl2-ttf-dev,
+               libqt5svg5-dev,
+               libyaml-cpp-dev,
+               mlocate,
+               qtdeclarative5-dev,
+               qttools5-dev,
+Standards-Version: 4.5.0
+Homepage: https://gitlab.com/mobian1/calamares-settings-mobian
+Vcs-Browser: https://gitlab.com/mobian1/calamares-settings-mobian
+Vcs-Git: https://gitlab.com/mobian1/calamares-settings-mobian.git
+Rules-Requires-Root: no
+
+Package: calamares-settings-mobian
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+         calamares,
+         cryptsetup,
+         fdisk,
+         kirigami2-dev,
+         libkf5coreaddons-dev,
+         libkf5declarative-dev,
+         libkf5kdelibs4support-dev,
+         libqt5svg5-dev,
+         libyaml-cpp-dev,
+         parted,
+         qml-module-org-kde-kirigami2,
+         qml-module-qtquick-virtualkeyboard,
+         qml-module-gsettings1.0,
+         qml-module-org-kde-kconfig,
+         qml-module-org-kde-kcoreaddons,
+         qml-module-org-kde-kio,
+         qml-module-org-kde-kirigami2,
+         qml-module-org-kde-kquickcontrols,
+         qml-module-org-kde-kquickcontrolsaddons,
+         qml-module-org-kde-purpose,
+         qml-module-org-kde-quickcharts,
+         qml-module-org-nemomobile-mpris,
+         qml-module-qmltermwidget,
+         qml-module-qt-labs-sharedimage,
+         qml-module-qtqml,
+         qml-module-qtqml-models2,
+         qml-module-qtquick-controls,
+         qml-module-qtquick-controls2,
+         qml-module-qtquick-dialogs,
+         qml-module-qtquick-extras,
+         qml-module-qtquick-layouts,
+         qml-module-qtquick-privatewidgets,
+         qml-module-qtquick-scene2d,
+         qml-module-qtquick-scene3d,
+         qml-module-qtquick-shapes,
+         qml-module-qtquick-templates2,
+         qml-module-qtquick-virtualkeyboard,
+         qml-module-qtquick-window2,
+         qml-module-qtquick2,
+         qml-module-qtscxml,
+         qml-module-qtwayland-client-texturesharing,
+         qml-module-qtwayland-compositor,
+         squashfs-tools,
+         qtdeclarative5-dev,
+         qttools5-dev,
+         qtvirtualkeyboard-plugin,
+Description: Lightweight On-Screen-Keyboard based on SDL2
+ This keyboard is designed to unlock encrypted root partitions on boot
+ on mobile devices. It is automatically launched on boot, allowing the
+ user to enter their disk encryption password.
