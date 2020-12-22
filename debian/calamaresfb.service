@@ -3,6 +3,7 @@ Description=Calamares Framebuffer Session
 DefaultDependencies=no
 Conflicts=shutdown.target
 After=getty.target
+Before=shutdown.target
 
 [Service]
 Type=oneshot
@@ -14,7 +15,6 @@ Environment="ONDEV_CIPHER=aes-xts-plain64"
 ExecStartPre=-/bin/plymouth quit
 # let the console output settle down
 ExecStart=/usr/bin/calamares-mobian-ondev
-#ExecStart=-/usr/sbin/calamares -platform eglfb
 StandardInput=tty-force
 StandardOutput=inherit
 StandardError=inherit

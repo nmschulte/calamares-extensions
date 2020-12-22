@@ -1,7 +1,5 @@
-Index: calamares-settings-mobian/CMakeLists.txt
-===================================================================
---- calamares-settings-mobian.orig/CMakeLists.txt	2020-12-17 08:46:13.249000000 +0000
-+++ calamares-settings-mobian/CMakeLists.txt	2020-12-17 08:46:13.247000000 +0000
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
 @@ -39,9 +39,7 @@
  # Typically you would use only one branding, since that's
  # the (single) branding for your distro.
