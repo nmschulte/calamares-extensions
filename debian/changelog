@@ -1,7 +1,7 @@
 calamares-settings-mobian (0.0.4-1) UNRELEASED; urgency=medium
 
   [ undef ]
-  * d/control: Remove unnecessary dependancies
+  * d/control: Remove unnecessary dependencies.
   * Rebase package to calamares-extensions upstream
 
  -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Tue, 15 Dec 2020 12:16:39 +0100
