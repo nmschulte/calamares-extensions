@@ -1,20 +1,32 @@
 Modifications required to install Mobian using calamares-mobile
---- a/modules/mobile/PartitionJob.cpp
-+++ b/modules/mobile/PartitionJob.cpp
-@@ -77,9 +77,11 @@
+Index: calamares-settings-mobian/modules/mobile/PartitionJob.cpp
+===================================================================
+--- calamares-settings-mobian.orig/modules/mobile/PartitionJob.cpp	2021-01-03 03:34:23.330000000 +0000
++++ calamares-settings-mobian/modules/mobile/PartitionJob.cpp	2021-01-03 03:35:09.688000000 +0000
+@@ -83,6 +83,7 @@
      QString cryptDev = "/dev/mapper/" + cryptName;
      QString passwordStdin = m_password + "\n";
      QString dev = m_targetDeviceRoot;
 +    QString devNoPart = dev.chopped(2);
+     QList< QPair< QStringList, QString > > commands = {};
  
-     QList< QPair< QStringList, QString > > commands = {
-         { { "mkdir", "-p", pathMount }, QString() },
-+        { { "parted", devNoPart, "mkpart", "primary", "ext4", "268M", "4.9G", "-s"}, QString()},
-     };
+     if ( m_installFromExternalToInternal )
+@@ -94,7 +95,10 @@
+         } );
+     }
+ 
+-    commands.append( { { { "mkdir", "-p", pathMount }, QString() } } );
++    commands.append( {
++			{ { "mkdir", "-p", pathMount }, QString() } 
++            { { "parted", devNoPart, "mkpart", "primary", "ext4", "268M", "4.9G", "-s" }, QString() },
++	} );
  
      if ( m_isFdeEnabled )
---- a/modules/mobile/wait.qml
-+++ b/modules/mobile/wait.qml
+     {
+Index: calamares-settings-mobian/modules/mobile/wait.qml
+===================================================================
+--- calamares-settings-mobian.orig/modules/mobile/wait.qml	2021-01-03 03:34:23.330000000 +0000
++++ calamares-settings-mobian/modules/mobile/wait.qml	2021-01-03 03:34:23.327000000 +0000
 @@ -38,7 +38,7 @@
              anchors.topMargin: 150
              wrapMode: Text.WordWrap
