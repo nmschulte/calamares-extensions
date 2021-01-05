@@ -1,8 +1,8 @@
 Modifications required to install Mobian using calamares-mobile
 Index: calamares-settings-mobian/modules/mobile/PartitionJob.cpp
 ===================================================================
---- calamares-settings-mobian.orig/modules/mobile/PartitionJob.cpp	2021-01-03 03:34:23.330000000 +0000
-+++ calamares-settings-mobian/modules/mobile/PartitionJob.cpp	2021-01-03 03:35:09.688000000 +0000
+--- calamares-settings-mobian.orig/modules/mobile/PartitionJob.cpp	2021-01-05 08:36:03.992000000 +0000
++++ calamares-settings-mobian/modules/mobile/PartitionJob.cpp	2021-01-05 08:36:39.830000000 +0000
 @@ -83,6 +83,7 @@
      QString cryptDev = "/dev/mapper/" + cryptName;
      QString passwordStdin = m_password + "\n";
@@ -17,7 +17,7 @@ Index: calamares-settings-mobian/modules/mobile/PartitionJob.cpp
  
 -    commands.append( { { { "mkdir", "-p", pathMount }, QString() } } );
 +    commands.append( {
-+			{ { "mkdir", "-p", pathMount }, QString() } 
++			{ { "mkdir", "-p", pathMount }, QString() },
 +            { { "parted", devNoPart, "mkpart", "primary", "ext4", "268M", "4.9G", "-s" }, QString() },
 +	} );
  
@@ -25,8 +25,8 @@ Index: calamares-settings-mobian/modules/mobile/PartitionJob.cpp
      {
 Index: calamares-settings-mobian/modules/mobile/wait.qml
 ===================================================================
---- calamares-settings-mobian.orig/modules/mobile/wait.qml	2021-01-03 03:34:23.330000000 +0000
-+++ calamares-settings-mobian/modules/mobile/wait.qml	2021-01-03 03:34:23.327000000 +0000
+--- calamares-settings-mobian.orig/modules/mobile/wait.qml	2021-01-05 08:36:03.992000000 +0000
++++ calamares-settings-mobian/modules/mobile/wait.qml	2021-01-05 08:36:03.990000000 +0000
 @@ -38,7 +38,7 @@
              anchors.topMargin: 150
              wrapMode: Text.WordWrap
