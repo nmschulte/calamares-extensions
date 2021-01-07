@@ -4,7 +4,6 @@ Priority: optional
 Maintainer: undef <debian@undef.tools>
 Build-Depends: calamares,
                cmake,
-			   dh-exec,
                debhelper-compat (= 13),
                libcryptsetup-dev,
                libkf5coreaddons-dev,

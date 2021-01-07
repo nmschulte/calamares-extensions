@@ -1,4 +1,3 @@
-#! /usr/bin/dh-exec
 debian/branding/* usr/share/calamares/branding/default-mobile
 debian/config/* etc/calamares
 debian/calamares-mobian-ondev usr/bin/
