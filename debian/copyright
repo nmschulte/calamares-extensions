@@ -1,18 +1,24 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: calamares-settings-mobian
+Upstream-Name: calamares-extensions
 Source: https://gitlab.com/mobian1/calamares-settings-mobian
 
 Files: *
-Copyright: 2017-2020, Clayton Craft <clayton@craftyguy.net>
-           2017-2020, Martijn Braam
-           2017, Ian Shehadeh
+Copyright: 2018-2020, Adriaan de Groot <groot@kde.org>
+License: GPL-3+
+
+Files: modules/mobile/*
+Copyright: 2020, Oliver Smith <ollieparanoid@postmarketos.org>
 License: GPL-3+
 
 Files: debian/*
-Copyright:  2020, Clayton Craft <clayton@craftyguy.net>
-            2020, undef <debian@undef.tools>
-            2020, Arnaud Ferraris <arnaud.ferraris@gmail.com>
+Copyright: 2020, undef <debian@undef.tools>
+           2020, Arnaud Ferraris <arnaud.ferraris@gmail.com>
 License: GPL-3+
+
+Files: debian/branding/show.qml
+Copyright: 2020, Oliver Smith <ollieparanoid@postmarketos.org>
+License: GPL-3+
+
 
 License: GPL-3+
  This program is free software: you can redistribute it and/or modify
