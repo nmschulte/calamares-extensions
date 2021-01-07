@@ -1,0 +1,25 @@
+From ee89a9e897f6ca241e23918a6b68f6031b1c7c9f Mon Sep 17 00:00:00 2001
+From: Arnaud Ferraris <arnaud.ferraris@collabora.com>
+Date: Thu, 7 Jan 2021 15:13:34 +0100
+Subject: [PATCH] CMakeLists: don't install default branding
+
+This one is already installed by the `calamares` package.
+---
+ CMakeLists.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2b2136e..ba224de 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -39,7 +39,6 @@ find_package(YAMLCPP REQUIRED)
+ # Typically you would use only one branding, since that's
+ # the (single) branding for your distro.
+ #
+-calamares_add_branding_subdirectory( branding/default NAME default )
+ calamares_add_branding_subdirectory( branding/default-mobile NAME default-mobile )
+ calamares_add_branding_subdirectory( branding/fancy NAME fancy )
+ 
+-- 
+2.29.2
+

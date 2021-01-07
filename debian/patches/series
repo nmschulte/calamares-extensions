@@ -1,1 +1,2 @@
 module.patch
+CMakeLists-don-t-install-default-branding.patch
