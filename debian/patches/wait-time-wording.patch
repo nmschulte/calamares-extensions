@@ -1,0 +1,13 @@
+Index: calamares-settings-mobian/modules/mobile/wait.qml
+===================================================================
+--- calamares-settings-mobian.orig/modules/mobile/wait.qml	2021-01-08 00:13:47.845000000 +0000
++++ calamares-settings-mobian/modules/mobile/wait.qml	2021-01-08 00:14:41.590000000 +0000
+@@ -38,7 +38,7 @@
+             anchors.topMargin: 150
+             wrapMode: Text.WordWrap
+             text: "Formatting and mounting target partition. This may" +
+-                  " take up to 20 seconds, please be patient."
++                  " take up to two minutes, please be patient."
+             width: 500
+         }
+     }
