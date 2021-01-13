@@ -1,10 +1,41 @@
-calamares-settings-mobian (0.0.4-1) UNRELEASED; urgency=medium
+calamares-settings-mobian (0.0.4-1) unstable; urgency=medium
 
   [ undef ]
   * d/control: Remove unnecessary dependencies.
   * Rebase package to calamares-extensions upstream
+  * d/patches: update module patch for new upstream.
+    Changes are now rebased on current calamares-extensions, which required
+    minor modifications to the module patch.
+  * d/* reshuffle file locations for more efficient install
+    d/branding created to contain a mobian branding rather than patching
+     the default-mobile branding. Note, this is still installed as default-mobile
+     as the mobile module's QML hard-codes this name.
+    d/config moved module config to d/config/modules and fixed relevant install line.
+    d/control remove superfluous quilt build-depend.
+    d/patches Remove branding (see d/branding) and limit-modules patch.
+     The latter was unnecessary.
+    d/calamares-settings-mobian.service renamed to automate install.
+  * d/copyright correct upstream contributors.
+    Previous changelog was taken from osk-sdl. This one matches
+    calamares-extensions.
+  * d/patches add wait-time-wording patch.
+    Fixes the wording of wait.qml to ensure users don't believe the installer
+    has hung.
+  * d/copyright fix source URL.
+    Source URL should point to upstream source, not package VCS.
 
- -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Tue, 15 Dec 2020 12:16:39 +0100
+  [ Arnaud Ferraris ]
+  * debian: don't install default branding.
+    This would cause conflicts with `calamares` which installs the same
+    files.
+  * debian: don't use dh-exec.
+    Current debhelper seems to not need it.
+  * d/patches: remove PartitionJob patch
+  * calamares-install-bootloader: use correct luks volume name.
+    The encrypted partition label is now `calamares_crypt` due to upstream
+    changes, let's use it for our crypttab setup.
+
+ -- Arnaud Ferraris <arnaud.ferraris@gmail.com>  Wed, 13 Jan 2021 15:55:36 +0100
 
 calamares-settings-mobian (0.0.3) unstable; urgency=medium
 
