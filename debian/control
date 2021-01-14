@@ -1,4 +1,4 @@
-Source: calamares-settings-mobian
+Source: calamares-extensions
 Section: utils
 Priority: optional
 Maintainer: undef <debian@undef.tools>
@@ -16,12 +16,12 @@ Build-Depends: calamares,
                qtdeclarative5-dev,
                qttools5-dev,
 Standards-Version: 4.5.0
-Homepage: https://gitlab.com/mobian1/calamares-settings-mobian
-Vcs-Browser: https://gitlab.com/mobian1/calamares-settings-mobian
-Vcs-Git: https://gitlab.com/mobian1/calamares-settings-mobian.git
+Homepage: https://gitlab.com/mobian1/calamares-extensions
+Vcs-Browser: https://gitlab.com/mobian1/calamares-extensions
+Vcs-Git: https://gitlab.com/mobian1/calamares-extensions.git
 Rules-Requires-Root: no
 
-Package: calamares-settings-mobian
+Package: calamares-extensions
 Architecture: any
 Depends: ${misc:Depends},
          ${shlibs:Depends},
@@ -48,7 +48,6 @@ Depends: ${misc:Depends},
          qtdeclarative5-dev,
          qttools5-dev,
          qtvirtualkeyboard-plugin,
-Description: Lightweight On-Screen-Keyboard based on SDL2
- This keyboard is designed to unlock encrypted root partitions on boot
- on mobile devices. It is automatically launched on boot, allowing the
- user to enter their disk encryption password.
+Description: Mobile module for Calamares installer framework
+Provides the mobile module for calamares, which allows installing
+on devices with small, touch screens.

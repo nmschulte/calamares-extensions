@@ -1,6 +1,0 @@
-debian/branding/* usr/share/calamares/branding/default-mobile
-debian/config/* etc/calamares
-debian/calamares-mobian-ondev usr/bin/
-debian/calamares-install-bootloader usr/bin
-debian/styles/Plasma usr/lib/${DEB_HOST_MULTIARCH}/qt5/qml/QtQuick/VirtualKeyboard/Styles
-modules/mobile/*.qml usr/share/calamares/branding/default-mobile
