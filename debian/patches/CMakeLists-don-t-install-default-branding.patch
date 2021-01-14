@@ -8,18 +8,16 @@ This one is already installed by the `calamares` package.
  CMakeLists.txt | 1 -
  1 file changed, 1 deletion(-)
 
-diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 2b2136e..ba224de 100644
---- a/CMakeLists.txt
-+++ b/CMakeLists.txt
-@@ -39,7 +39,6 @@ find_package(YAMLCPP REQUIRED)
+Index: calamares-extensions/CMakeLists.txt
+===================================================================
+--- calamares-extensions.orig/CMakeLists.txt	2021-01-14 03:49:49.964000000 +0000
++++ calamares-extensions/CMakeLists.txt	2021-01-14 03:50:02.419000000 +0000
+@@ -59,8 +59,6 @@
  # Typically you would use only one branding, since that's
  # the (single) branding for your distro.
  #
 -calamares_add_branding_subdirectory( branding/default NAME default )
- calamares_add_branding_subdirectory( branding/default-mobile NAME default-mobile )
+-calamares_add_branding_subdirectory( branding/default-mobile NAME default-mobile )
  calamares_add_branding_subdirectory( branding/fancy NAME fancy )
  
--- 
-2.29.2
-
+ # This one has files in subdirectories

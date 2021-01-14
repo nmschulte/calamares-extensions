@@ -26,15 +26,12 @@ Architecture: any
 Depends: ${misc:Depends},
          ${shlibs:Depends},
          calamares,
-         cryptsetup,
-         fdisk,
          kirigami2-dev,
          libkf5coreaddons-dev,
          libkf5declarative-dev,
          libkf5kdelibs4support-dev,
          libqt5svg5-dev,
          libyaml-cpp-dev,
-         parted,
          qml-module-org-kde-kirigami2,
          qml-module-qtquick-virtualkeyboard,
          qml-module-org-kde-kirigami2,
@@ -44,10 +41,9 @@ Depends: ${misc:Depends},
          qml-module-qtquick-window2,
          qml-module-qtquick2,
          qml-module-qt-labs-folderlistmodel,
-         squashfs-tools,
          qtdeclarative5-dev,
          qttools5-dev,
          qtvirtualkeyboard-plugin,
 Description: Mobile module for Calamares installer framework
-Provides the mobile module for calamares, which allows installing
-on devices with small, touch screens.
+  Provides the mobile module for calamares, which allows installing
+  on devices with small, touch-screens.
