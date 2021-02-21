@@ -45,5 +45,5 @@ Depends: ${misc:Depends},
          qttools5-dev,
          qtvirtualkeyboard-plugin,
 Description: Mobile module for Calamares installer framework
-  Provides the mobile module for calamares, which allows installing
-  on devices with small, touch-screens.
+ Provides the mobile module for calamares, which allows installing
+ on devices with small, touch-screens.
