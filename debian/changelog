@@ -1,6 +1,8 @@
-calamares-extensions (0.0.4-2) UNRELEASED; urgency=medium
+calamares-extensions (1.1.1-1) UNRELEASED; urgency=medium
     [ undef ]
     * split calamares-extensions from calamares-settings-mobian
+    * New upstream release
+    * Remove wait-time patch (included in upstream)
 
  -- undef <debian@undef.tools>  Wed, 13 Jan 2021 15:55:36 +0000
 
