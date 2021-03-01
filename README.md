@@ -1,10 +1,11 @@
 # Calamares Branding and Module Examples
 
 > A *branding component* in Calamares is a description of the
-> produce (i.e. distribution) being installed along with a "slideshow" 
+> product (i.e. distribution) being installed along with a "slideshow"
 > that is displayed during the installation phase of Calamares.
+> This shapes the **look** of your installation.
 >
-> A *module* adds functionality to Calamares; modules may be written
+> A *module* adds **functionality** to Calamares; modules may be written
 > in C++ or Python, using Qt Widgets or QML for the UI (with C++)
 > if there is one. Both C++ and Python allow a full control over the
 > target system during the installation.
@@ -13,13 +14,9 @@ This repository contains complete examples of branding and some
 modules for Calamares.
 
 - [Branding](#branding) documentation
-  - [default](branding/default/branding.desc) branding example
-  - [fancy](branding/fancy/branding.desc) branding example
-  - [KaOS](branding/kaos_branding/branding.desc) branding example
-  - [SameGame](branding/samegame/branding.desc) branding example
-- [Module](#module) documentation
-  
-## Branding 
+- [Module](#modules) documentation
+
+## Branding
 
 > Branding shapes the **look** of Calamares to your distro
 
@@ -28,11 +25,20 @@ can be used for testing. The examples here show what can be done
 with QML in the context of Calamares branding, and provide examples
 and documentation for the framework that Calamares ships with.
 
- - `default/` is a copy of the default branding included with Calamares.
- - `fancy/` has navigation buttons and a slide counter.
- - `kaos_branding/` is a copy of the KaOS branding component, which
+ - [`default/`](branding/default/branding.desc)
+   is a copy of the default branding included with Calamares.
+ - [`fancy/`](branding/fancy/branding.desc)
+   has navigation buttons and a slide counter.
+ - [`image-slideshow/`](branding/image-slideshow/branding.desc)
+   is a variant of the *default* branding that implements its
+   own slide element for QML that supports a single image.
+   This is useful for straightforward images-only slideshows
+   (probably moreso than the default slideshow).
+ - [`kaos_branding/`](branding/kaos_branding/branding.desc)
+   is a copy of the KaOS branding component, which
    has translations and a bunch of fancy graphics.
- - `samegame/` is a copy of the Qt Company "Same Game" QML demo. It
+ - [`samegame/` ](branding/default/branding.desc)
+   is a copy of the Qt Company "Same Game" QML demo. It
    shows that **any** QML can be used for branding purposes.
 
 ### Writing your own Branding
@@ -62,7 +68,7 @@ and documentation for the framework that Calamares ships with.
   parts of Calamares.
 
   See the [styling paragraph](https://github.com/calamares/calamares/wiki/Deploy-Guide#styling-calamares) of the deployment guide for more details.
-   
+
 ### Testing a Branding Component
 
 If Calamares is installed, then the Calamares QML support files
@@ -72,7 +78,7 @@ branding component is free to do whatever is interesting in QML.
 
 The tool for quickly viewing QML files is `qmlscene`, which is
 included with the Qt development tools. It can be used to
-preview a Calamares branding component (slideshow) without starting 
+preview a Calamares branding component (slideshow) without starting
 Calamares.  If the component uses translations, you will need to
 build the translations first (using Qt Linguist `lrelease`, or by
 using the normal build system for branding components).
@@ -87,7 +93,7 @@ qmlscene \
     -translation build/calamares-fancy_nl.qm \
     -I /usr/local/share/calamares/qml \
     -geometry 600x400 \
-    fancy/show.qml 
+    fancy/show.qml
 ```
 
 This starts the viewer with the Dutch (nl) translation, using the
@@ -104,25 +110,39 @@ every time.
 ### Calamares Branding API
 
 The slideshow which is configured in the branding files can have
-one of two "API styles". 
+one of two "API styles".
 
 - Version 1 is loaded when the slideshow starts. If the slideshow is
   large, or contains remote content, then this may be slow.
+  The loading time may be visible as a "white flash" as the
+  QML component is displayed with no background until the
+  slideshow is loaded.
 - Version 2 is loaded asynchronously from the moment Calamares is
-  started. This may delay startup a little, but may appear more
+  started. This may delay startup a little, but appears more
   responsive overall.
 
 If the slideshow QML defines functions
 `onActivate()` and `onLeave()` then those functions
 are called when the slideshow becomes visible and when the installation is finished.
 These can be used to start and stop timers or sound effects or
-whatever. 
+whatever.
 
 In addition, if the slideshow QML defines a property
 `activatedInCalamares` then it is set to `true`
-when the slideshow becomes visible, and to `false` when 
+when the slideshow becomes visible, and to `false` when
 the installation is finished. This can also be used to
-start timers, etc.
+start timers, etc. The standard `Presentation.qml` included with
+Calamares has such a property.
+
+A slideshow (`show.qml`) can be entirely independent, with bespoke code,
+or it can make use of files shipped as part of Calamares: a *Presentation* and
+a *Slide* element (and some others). There are also Calamares internals which
+can be used from QML:
+- `import calamares.slideshow 1.0` for the standard QML slideshow (e.g. *Presentation* element;
+  use *Slide* with this or write an API-equivalent element such as the one in `image-slideshow/`).
+- `import io.calamares.ui 1.0` for a *Branding* object which has an API to
+  get colors and strings that are used elsewhere in Calamares (e.g. to make the
+  slide background the same as the background defined in `branding.desc`).
 
 
 ## Modules
@@ -135,6 +155,8 @@ listed in the *show* phase, and may run jobs if listed in the
 *exec*  phase) and a Python job module (no UI, runs in the *exec*
 phase).
 
+### Example Modules
+
 - [filekeeper](modules/filekeeper/CMakeLists.txt) is a C++ **job** module
   to copy files from the host (live) system to the target system at
   the end of installation, like logfiles. (This module is made obsolete
@@ -145,6 +167,14 @@ phase).
 - [slowpython](modules/slowpython/module.desc) is a Python **job**
   module that just serves to slow down an installation by delaying
   a configurable (default 30 seconds) amount of time.
+
+### Functional Modules
+
+- [mobile](modules/mobile/CMakeLists.txt) is a QML **view** that
+  takes over a number of other view steps. It is specific to
+  mobile phone use, possibly specific to PostmarketOS. It does
+  a number of "welcome to your new phone" things, e.g.
+  with PostmarketOS installed on a PinePhone.
 
 ### CMake Preparation
 
