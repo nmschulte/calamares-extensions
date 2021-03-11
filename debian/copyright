@@ -15,7 +15,7 @@ Copyright: 2020, undef <debian@undef.tools>
            2020, Arnaud Ferraris <arnaud.ferraris@gmail.com>
 License: GPL-3+
 
-Files: debian/branding/show.qml
+Files: branding/default-mobile/show.qml
 Copyright: 2020, Oliver Smith <ollieparanoid@postmarketos.org>
 License: GPL-3+
 
