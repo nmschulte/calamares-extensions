@@ -1,7 +1,8 @@
 Source: calamares-extensions
 Section: utils
 Priority: optional
-Maintainer: undef <debian@undef.tools>, Arnaud Ferraris <arnaud.ferraris@gmail.com>
+Maintainer: undef <debian@undef.tools>
+Uploaders: Arnaud Ferraris <arnaud.ferraris@gmail.com>
 Build-Depends: calamares,
                cmake,
                debhelper-compat (= 13),
