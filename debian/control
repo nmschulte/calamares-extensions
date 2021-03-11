@@ -16,7 +16,7 @@ Build-Depends: calamares,
                libyaml-cpp-dev,
                qtdeclarative5-dev,
                qttools5-dev,
-Standards-Version: 4.5.0
+Standards-Version: 4.5.1
 Homepage: https://gitlab.com/mobian1/calamares-extensions
 Vcs-Browser: https://gitlab.com/mobian1/calamares-extensions
 Vcs-Git: https://gitlab.com/mobian1/calamares-extensions.git
@@ -26,6 +26,7 @@ Package: calamares-extensions
 Architecture: any
 Depends: ${misc:Depends},
          ${shlibs:Depends},
+         calamares-extensions-data (= ${source:Version}),
          calamares,
          kirigami2-dev,
          libkf5coreaddons-dev,
@@ -51,3 +52,15 @@ Depends: ${misc:Depends},
 Description: Mobile module for Calamares installer framework
  Provides the mobile module for calamares, which allows installing
  on devices with small, touch-screens.
+ .
+ This package contains architecture-dependent binary files.
+
+Package: calamares-extensions-data
+Architecture: all
+Depends: ${misc:Depends},
+         ${shlibs:Depends},
+Description: Mobile module for Calamares installer framework - data files
+ Provides the mobile module for calamares, which allows installing
+ on devices with small, touch-screens.
+ .
+ This package contains architecture-independent data files.
