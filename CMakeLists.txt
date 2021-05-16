@@ -24,13 +24,32 @@
 # distro can use an unmodified (upstream) Calamares package and a local
 # customisation package in tandem.
 #
+# Besides being an example repository, it is also a collection of modules
+# and branding that is usable in its own right.
+#
+### CONFIGURING
+#
+# By default, all the branding examples and all the modules are built.
+# This can be influenced through:
+#   SKIP_MODULES    : a space or semicolon-separated list of directory names
+#                     under src/modules that should not be built.
+#   USE_*           : fills in SKIP_MODULES for modules called *-<something>
+# In this repository, there is just one "group" to which USE_* applies:
+#   USE_os          : operating-system-specific modules.
 cmake_minimum_required(VERSION 3.3 FATAL_ERROR)
 project(calamares-extensions
-    VERSION 1.1.1
+    VERSION 1.1.2
     LANGUAGES CXX
 )
 
-find_package(Calamares 3.2.26 REQUIRED)
+# On developer's machine, the user package registry breaks
+# consumers by loading the developer's config from a build
+# directory (which doesn't have the rest of the config
+# installed inside it).
+find_package(Calamares 3.2.26 REQUIRED NO_CMAKE_PACKAGE_REGISTRY)
+if (NOT TARGET Calamares::calamares OR NOT TARGET Calamares::calamaresui)
+    message(FATAL_ERROR "Calamares found with missing CMake targets")
+endif()
 
 find_package(YAMLCPP REQUIRED)  # Needed to untangle some dependencies before Calamares 3.2.36
 
@@ -76,16 +95,18 @@ calamares_add_branding_subdirectory( branding/kaos_branding NAME kaos )
 #
 # Add one of more modules, either C++ or Python.
 #
-set(SKIPPED_MODULES "")
+set(LIST_SKIPPED_MODULES "")
 
-calamares_add_module_subdirectory( modules/filekeeper )  # C++ job
-calamares_add_module_subdirectory( modules/freebsddisk )  # C++ viewmodule
-calamares_add_module_subdirectory( modules/mobile )
-calamares_add_module_subdirectory( modules/slowpython )  # Python job
+calamares_add_module_subdirectory( modules/filekeeper LIST_SKIPPED_MODULES )  # C++ job
+calamares_add_module_subdirectory( modules/freebsddisk LIST_SKIPPED_MODULES )  # C++ viewmodule
+calamares_add_module_subdirectory( modules/mobile LIST_SKIPPED_MODULES )
+calamares_add_module_subdirectory( modules/os-freebsd LIST_SKIPPED_MODULES )
+calamares_add_module_subdirectory( modules/os-nixos LIST_SKIPPED_MODULES )
+calamares_add_module_subdirectory( modules/slowpython LIST_SKIPPED_MODULES )  # Python job
 
 # If modules cannot be built, they usually call a macro
 # which builds a list of explanations; show that list.
-calamares_explain_skipped_modules( ${SKIPPED_MODULES} )
+calamares_explain_skipped_modules( ${LIST_SKIPPED_MODULES} )
 
 ### RELEASE SUPPORT
 #
