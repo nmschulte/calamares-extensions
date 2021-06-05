@@ -1,1 +1,2 @@
 CMakeLists-don-t-install-default-branding.patch
+CMakeLists-remove-non-mobile-modules.patch

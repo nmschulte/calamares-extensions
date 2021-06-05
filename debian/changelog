@@ -1,3 +1,9 @@
+calamares-extensions (1.1.2-1) UNRELEASED; urgency=medium
+
+  * New Upstream Release
+
+ -- Undef <debian@undef.tools>  Sun, 16 May 2021 06:23:00 +0000
+
 calamares-extensions (1.1.1-1) unstable; urgency=medium
 
   [ undef ]
