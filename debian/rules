@@ -3,11 +3,9 @@
 # output every command that modifies files on the build system.
 export DH_VERBOSE = 1
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
-ifeq (,$(filter terse,$(DEB_BUILD_OPTIONS)))
-	export V=1
-else
-	export V=0
-endif
 
 %:
 	dh $@
+
+override_dh_auto_configure:
+	dh_auto_configure -- -DCMAKE_CXX_COMPILER_ARG1="$(CPPFLAGS)"
