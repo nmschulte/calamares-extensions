@@ -1,2 +1,3 @@
 CMakeLists-don-t-install-default-branding.patch
 CMakeLists-remove-non-mobile-modules.patch
+0001-CMake-adjust-extensions-to-changes-in-Calamares-core.patch
