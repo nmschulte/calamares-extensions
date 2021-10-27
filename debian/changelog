@@ -1,8 +1,14 @@
-calamares-extensions (1.1.2-1) UNRELEASED; urgency=medium
+calamares-extensions (1.1.2-1) unstable; urgency=medium
 
+  [ Undef ]
   * New Upstream Release
+  * d/rules: Add CXXFlags to CMake.
+  * d/patches: backport fix for calamares 3.2.43.
 
- -- Undef <debian@undef.tools>  Sun, 16 May 2021 06:23:00 +0000
+  [ Arnaud Ferraris ]
+  * d/gbp.conf: adapt to mobian
+
+ -- Arnaud Ferraris <arnaud.ferraris@collabora.com>  Wed, 27 Oct 2021 13:22:21 +0200
 
 calamares-extensions (1.1.1-1) unstable; urgency=medium
 
