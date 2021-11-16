@@ -10,9 +10,9 @@ This one is already installed by the `calamares` package.
 
 Index: calamares-extensions/CMakeLists.txt
 ===================================================================
---- calamares-extensions.orig/CMakeLists.txt	2021-06-05 12:05:49.796000000 +0000
-+++ calamares-extensions/CMakeLists.txt	2021-06-05 12:05:49.791000000 +0000
-@@ -78,8 +78,6 @@
+--- calamares-extensions.orig/CMakeLists.txt	2021-11-16 09:13:48.549000000 +0000
++++ calamares-extensions/CMakeLists.txt	2021-11-16 09:13:58.000000000 +0000
+@@ -92,8 +92,6 @@
  # Typically you would use only one branding, since that's
  # the (single) branding for your distro.
  #

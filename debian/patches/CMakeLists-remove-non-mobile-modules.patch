@@ -1,17 +1,21 @@
 Index: calamares-extensions/CMakeLists.txt
 ===================================================================
---- calamares-extensions.orig/CMakeLists.txt	2021-06-05 12:05:49.791000000 +0000
-+++ calamares-extensions/CMakeLists.txt	2021-06-05 12:06:20.201000000 +0000
-@@ -95,12 +95,7 @@
+--- calamares-extensions.orig/CMakeLists.txt	2021-11-16 09:17:40.238000000 +0000
++++ calamares-extensions/CMakeLists.txt	2021-11-16 09:18:36.178000000 +0000
+@@ -109,12 +109,12 @@
  #
  set(LIST_SKIPPED_MODULES "")
  
--calamares_add_module_subdirectory( modules/filekeeper LIST_SKIPPED_MODULES )  # C++ job
 -calamares_add_module_subdirectory( modules/freebsddisk LIST_SKIPPED_MODULES )  # C++ viewmodule
++#calamares_add_module_subdirectory( modules/freebsddisk LIST_SKIPPED_MODULES )  # C++ viewmodule
  calamares_add_module_subdirectory( modules/mobile LIST_SKIPPED_MODULES )
 -calamares_add_module_subdirectory( modules/os-freebsd LIST_SKIPPED_MODULES )
 -calamares_add_module_subdirectory( modules/os-nixos LIST_SKIPPED_MODULES )
++#calamares_add_module_subdirectory( modules/os-freebsd LIST_SKIPPED_MODULES )
++#calamares_add_module_subdirectory( modules/os-nixos LIST_SKIPPED_MODULES )
+ calamares_add_module_subdirectory( modules/refind LIST_SKIPPED_MODULES )
 -calamares_add_module_subdirectory( modules/slowpython LIST_SKIPPED_MODULES )  # Python job
++#calamares_add_module_subdirectory( modules/slowpython LIST_SKIPPED_MODULES )  # Python job
+ calamares_add_module_subdirectory( modules/unpackfsc LIST_SKIPPED_MODULES )
  
  # If modules cannot be built, they usually call a macro
- # which builds a list of explanations; show that list.
