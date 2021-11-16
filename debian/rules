@@ -9,3 +9,6 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 override_dh_auto_configure:
 	dh_auto_configure -- -DCMAKE_CXX_COMPILER_ARG1="$(CPPFLAGS)"
+
+# Tests rely on test_conf and loadmodule from calamares, which are not packaged.
+override_dh_auto_test:
