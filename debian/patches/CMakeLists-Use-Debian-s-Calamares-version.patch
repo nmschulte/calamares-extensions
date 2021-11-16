@@ -1,0 +1,22 @@
+Index: calamares-extensions/CMakeLists.txt
+===================================================================
+--- calamares-extensions.orig/CMakeLists.txt	2021-11-16 09:49:46.150000000 +0000
++++ calamares-extensions/CMakeLists.txt	2021-11-16 09:50:07.445000000 +0000
+@@ -60,7 +60,7 @@
+ # consumers by loading the developer's config from a build
+ # directory (which doesn't have the rest of the config
+ # installed inside it).
+-set( CALAMARES_VERSION_REQUIRED 3.2.46 )
++set( CALAMARES_VERSION_REQUIRED 3.2.44 )
+ find_package(Calamares ${CALAMARES_VERSION_REQUIRED} NO_CMAKE_PACKAGE_REGISTRY)
+ if (NOT TARGET Calamares::calamares OR NOT TARGET Calamares::calamaresui)
+     find_package(Calamares ${CALAMARES_VERSION_REQUIRED} REQUIRED)
+@@ -115,7 +115,7 @@
+ #calamares_add_module_subdirectory( modules/os-nixos LIST_SKIPPED_MODULES )
+ calamares_add_module_subdirectory( modules/refind LIST_SKIPPED_MODULES )
+ #calamares_add_module_subdirectory( modules/slowpython LIST_SKIPPED_MODULES )  # Python job
+-calamares_add_module_subdirectory( modules/unpackfsc LIST_SKIPPED_MODULES )
++# calamares_add_module_subdirectory( modules/unpackfsc LIST_SKIPPED_MODULES )
+ 
+ # If modules cannot be built, they usually call a macro
+ # which builds a list of explanations; show that list.

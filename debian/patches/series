@@ -1,3 +1,3 @@
 CMakeLists-don-t-install-default-branding.patch
 CMakeLists-remove-example-modules.patch
-#0001-CMake-adjust-extensions-to-changes-in-Calamares-core.patch
+CMakeLists-Use-Debian-s-Calamares-version.patch
