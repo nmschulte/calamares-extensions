@@ -1,3 +1,11 @@
+calamares-extensions (1.2.1-1) unstable; urgency=medium
+
+  [ Undef ]
+  * New Upstream Release
+  * d/patches: update for 1.2.1
+
+ -- Undef <debian@undef.tools>  Fri, 04 Mar 2022 11:30:29 +0000
+
 calamares-extensions (1.1.2-3) unstable; urgency=medium
 
   * Rebuild for Calamares 3.2.51
