@@ -1,3 +1,9 @@
+calamares-extensions (1.2.1-2) unstable; urgency=medium
+
+  * Rebuild for calamares 3.2.59-1.
+
+ -- Undef <debian@undef.tools>  Tue, 07 Jun 2022 01:34:08 +0000
+
 calamares-extensions (1.2.1-1) unstable; urgency=medium
 
   [ Undef ]
